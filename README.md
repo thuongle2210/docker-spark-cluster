@@ -179,3 +179,6 @@ pyspark
 * Right now to run applications in deploy-mode cluster is necessary to specify arbitrary driver port.
 
 * The spark submit entry in the start-spark.sh is unimplemented, the submit used in the demos can be triggered from any worker
+
+# submit spark job get data from bigquery and write back to bigquery:
+bin/spark-submit --master spark://spark-master:7077 --jars /opt/spark-apps/spark-bigquery-with-dependencies_2.12-0.27.0.jar,/opt/spark-apps/gcs-connector-hadoop2-latest.jar --conf spark.hadoop.fs.gs.impl=com.google.cloud.hadoop.fs.gcs.GoogleHadoopFileSystem --driver-memory 1G --executor-memory 1G /opt/spark-apps/main_bigquery.py --conf spark.hadoop.fs.AbstractFileSystem.gs.impl=com.google.cloud.hadoop.fs.gcs.GoogleHadoopFS --conf spak.hadoop.fs.gs.auth.service.account.enable=true

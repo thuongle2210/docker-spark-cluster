@@ -186,18 +186,30 @@ dữ liệu log gửi qua kafka thì encode lại theo utf-8 rồi decode ra, d�
 
 
 Trong thư mục apps:
+
 -gen_date.py: sinh ra các điểm thời gian ngẫu nhiên
+
 -main_test.py: test cách đọc dữ liệu trong spark từ file 
+
 -main_bigquery: đọc/ghi dữ liệu bằng spark với bigquery
+
 -parse_log_streaming: parse log theo thời gian thực bằng cách đọc dữ liệu từ kafka
+
 -parse_log.py: parse 1 file log một lần duy nhất
+
 -spark_streaming_kafka.py: test kafka, spark structured streaming
 
 
 Trong thư mục kafka_code, chứa các code của kafka:
+
 -create_topic.sh: đầu vào là xâu "demo" để tạo topic demo cũng như install package kafka-python
+
 -consume_data_from_kafka.py: để consume data ở topic demo
+
 -feed_data_to_kafka.py: đẩy dữ liệu giống nhau vào kafka 
+
 -feed_log_to_kafka.py: đẩy dữ liệu log từ access_log.log
+
 -gen_and_push_data.py: sinh dữ liệu random rồi đẩy trực tiếp vào kafka
+
 -gen_data.py: sinh dữ liệu rồi lưu xuống file access_log.log thư mực kafka_code/, dữ liệu này lấy chuỗi thời gian từ file listtimestamp.csv

@@ -139,7 +139,12 @@ split_df_with_get_method = split_df_filter_http_version.filter(col('method')=='G
 #             .show(200, truncate=False)
 
 # thong ke theo ngay
-query12_df = split_df_with_get_method.groupby('utc_dt')\
-            .agg(count('*').alias('count_utc_dt'))\
-            .sort(col('count_utc_dt').desc())\
-            .show(200, truncate=False)
+# query12_df = split_df_with_get_method.groupby('utc_dt')\
+#             .agg(count('*').alias('count_utc_dt'))\
+#             .sort(col('count_utc_dt').desc())\
+#             .show(200, truncate=False)
+
+#lay ra tat ca thoi gian
+
+query13_df = split_df_with_get_method.select(col('timestamp'))
+query13_df.write.csv('/opt/spark-data/timestamp.csv')

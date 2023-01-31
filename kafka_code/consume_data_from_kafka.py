@@ -8,4 +8,4 @@ if __name__=="__main__":
         auto_offset_reset="latest")
 
     for msg in consumer:
-        print(json.loads(msg.value))
+        print(msg.value.decode('utf-8'))
